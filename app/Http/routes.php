@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'PostController@index']);
+
+Route::get('post/{slug}', ['as' => 'post.show', 'uses' => 'PostController@show']);
+
+Route::get(trans('routes.about'), ['as' => 'about', 'uses' => 'PageController@getAboutPage']);
+
+Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
+
+Route::auth();

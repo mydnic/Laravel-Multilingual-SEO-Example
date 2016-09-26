@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Request;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -52,10 +53,19 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes(Router $router)
     {
+        // dd('2');
+        $locale = Request::segment(1);
+
+        // if (array_key_exists($locale, config('languages'))) {
+        //     app()->setLocale($locale);
+        // } else {
+        // }
+
         $router->group([
-            'namespace' => $this->namespace, 'middleware' => 'web',
+            'namespace' => $this->namespace, 'middleware' => 'web', 'prefix' => $locale
         ], function ($router) {
             require app_path('Http/routes.php');
         });
+        return redirect()->to(config('app.fallback_locale'));
     }
 }
