@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Lang;
 
 class LanguageController extends Controller
 {
@@ -24,7 +25,7 @@ class LanguageController extends Controller
         if (array_key_exists($lang, config('languages'))) {
 
             // If it was indeed a translated route name
-            if ($route_name) {
+            if ($route_name && Lang::has('routes.' . $route_name, $lang)) {
 
                 // Translate the route name to get the correct URI in the required language, and redirect to that URL.
                 return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], 'messages', $lang));

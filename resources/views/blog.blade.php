@@ -17,7 +17,9 @@
                         {{ $post->content }}
                     </div>
                     <div class="panel-footer text-right">
-                        <a href="{{ route('post.show', $post->slug) }}">View More</a>
+                        <a href="{{ route('post.show', $post->slug) }}">
+                            {{ trans('app.view_more') }}
+                        </a>
                     </div>
                 </div>
             @endforeach
