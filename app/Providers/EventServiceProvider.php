@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+use App\Post;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Event;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -19,15 +21,21 @@ class EventServiceProvider extends ServiceProvider
     ];
 
     /**
-     * Register any other events for your application.
+     * Register any events for your application.
      *
-     * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
      */
-    public function boot(DispatcherContract $events)
+    public function boot()
     {
-        parent::boot($events);
+        parent::boot();
 
-        //
+        Post::created(function($post) {
+            foreach (config('languages') as $lang => $language) {
+                $post->slug = [
+                    $lang => SlugService::createSlug(Post::class, 'slug', $post->title)
+                ];
+                $post->save();
+            }
+        });
     }
 }

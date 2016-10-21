@@ -12,7 +12,28 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Post::class, 10)
-            ->create();
+        Post::truncate();
+
+        // Post::create([
+        //     'title' => [
+        //         'en' => 'My Awesome Post',
+        //         'fr' => 'Mon Super Article',
+        //     ],
+        //     'content' => [
+        //         'en' => 'This is some cool paragraph',
+        //         'fr' => 'Ceci est le contenu stylé de mon article',
+        //     ],
+        // ]);
+
+        // Post::create([
+        //     'title' => [
+        //         'en' => 'The Second Amazing Subject',
+        //         'fr' => 'Le Deuxième sujet génial',
+        //     ],
+        //     'content' => [
+        //         'en' => 'A very nice text about how things work somewhere',
+        //         'fr' => 'Un chouette texte qui vous raconte des choses',
+        //     ],
+        // ]);
     }
 }
