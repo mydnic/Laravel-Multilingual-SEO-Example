@@ -2,25 +2,15 @@
 
 namespace App;
 
-use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Model;
+use Dimsav\Translatable\Translatable;
 
 class Post extends Model
 {
-    use Sluggable;
+    use Translatable;
 
-    /**
-     * Return the sluggable configuration array for this model.
-     *
-     * @return array
-     */
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'title'
-            ]
-        ];
-    }
+    public $translatedAttributes = ['title', 'slug', 'content'];
+
+    protected $fillable = ['title', 'slug', 'content'];
 
 }

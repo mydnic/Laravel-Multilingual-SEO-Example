@@ -29,13 +29,13 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        Post::created(function($post) {
-            foreach (config('languages') as $lang => $language) {
-                $post->slug = [
-                    $lang => SlugService::createSlug(Post::class, 'slug', $post->title)
-                ];
-                $post->save();
-            }
-        });
+        // Post::created(function($post) {
+        //     foreach (config('languages') as $lang => $language) {
+        //         $post->slug = [
+        //             $lang => SlugService::createSlug(Post::class, 'slug', $post->title)
+        //         ];
+        //         $post->save();
+        //     }
+        // });
     }
 }

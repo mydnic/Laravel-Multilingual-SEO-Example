@@ -17,7 +17,12 @@ class PostController extends Controller
 
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
+        $post = Post::whereTranslation('slug', $slug)->firstOrFail();
+
+        if ($post->translate()->where('slug', $slug)->first()->locale != app()->getLocale()) {
+            return redirect()->route('post.show', $post->translate()->slug);
+        }
+
         return view('post')
             ->with('post', $post);
     }
