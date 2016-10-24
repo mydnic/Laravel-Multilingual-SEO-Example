@@ -22,7 +22,7 @@ class LanguageController extends Controller
         $segments = $previous_request->segments();
 
         // Check if the first segment matches a language code
-        if (array_key_exists($lang, config('languages'))) {
+        if (array_key_exists($lang, config('translatable.locales'))) {
 
             // If it was indeed a translated route name
             if ($route_name && Lang::has('routes.' . $route_name, $lang)) {

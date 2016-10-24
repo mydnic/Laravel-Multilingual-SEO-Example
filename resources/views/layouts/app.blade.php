@@ -69,16 +69,15 @@
                     @endif
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-                            {{-- {{ config('languages')[app()->getLocale()] }} --}}
-                        {{app()->getLocale()}}
+                            {{ app()->getLocale() }} <span class="carret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            @foreach (config('languages') as $lang => $language)
+                            @foreach (config('translatable.locales') as $lang => $language)
                                 @if ($lang != app()->getLocale())
                                     <li>
-                                        <a href="{{ route('lang.switch', $lang) }}">{{ $language }}</a>
-                                        {{-- <a href="{{ switchLanguage($lang) }}">{{ $language }}</a> --}}
+                                        <a href="{{ route('lang.switch', $lang) }}">
+                                            {{ $language }}
+                                        </a>
                                     </li>
                                 @endif
                             @endforeach
