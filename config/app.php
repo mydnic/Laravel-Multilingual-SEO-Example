@@ -162,14 +162,12 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Cviebrock\EloquentSluggable\ServiceProvider::class,
-        Dimsav\Translatable\TranslatableServiceProvider::class,
 
         /*
          * Package Service Providers...
          */
-
-        //
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Dimsav\Translatable\TranslatableServiceProvider::class,
 
         /*
          * Application Service Providers...
