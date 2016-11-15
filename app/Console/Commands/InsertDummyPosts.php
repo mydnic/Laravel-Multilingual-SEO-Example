@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Post;
 use Illuminate\Console\Command;
 
 class InsertDummyPosts extends Command
@@ -37,6 +38,8 @@ class InsertDummyPosts extends Command
      */
     public function handle()
     {
+        app()->setLocale('en');
+
         $post1 = new Post();
         $post1->title = 'My Awesome Post';
         $post1->content = 'This is some cool paragraph';

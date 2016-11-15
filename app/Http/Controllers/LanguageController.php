@@ -31,14 +31,22 @@ class LanguageController extends Controller
             if ($route_name && Lang::has('routes.' . $route_name, $lang)) {
 
                 // Translate the route name to get the correct URI in the required language, and redirect to that URL.
-                return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], 'messages', $lang) . '?' . http_build_query($query));
+                if (count($query)) {
+                    return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], 'messages', $lang) . '?' . http_build_query($query));
+                }
+
+                return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], 'messages', $lang));
             }
 
             // Replace the first segment by the new language code
             $segments[0] = $lang;
 
             // Redirect to the required URL
-            return redirect()->to(implode('/', $segments) . '?' . http_build_query($query));
+            if (count($query)) {
+                return redirect()->to(implode('/', $segments) . '?' . http_build_query($query));
+            }
+
+            return redirect()->to(implode('/', $segments));
         }
 
         return redirect()->back();
