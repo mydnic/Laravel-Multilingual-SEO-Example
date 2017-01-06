@@ -20,3 +20,4 @@ Route::get(trans('routes.about'), ['as' => 'about', 'uses' => 'PageController@ge
 Route::get('lang/{language}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 
 Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');

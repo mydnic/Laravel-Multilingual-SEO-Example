@@ -63,7 +63,9 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>{{ trans('app.logout') }}</a></li>
+                                <li>
+                                    <a href="{{ url(app()->getLocale() . '/logout') }}"><i class="fa fa-btn fa-sign-out"></i>{{ trans('app.logout') }}</a>
+                                </li>
                             </ul>
                         </li>
                     @endif
