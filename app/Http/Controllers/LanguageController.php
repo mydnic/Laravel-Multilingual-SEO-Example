@@ -28,14 +28,14 @@ class LanguageController extends Controller
         if (array_key_exists($lang, config('translatable.locales'))) {
 
             // If it was indeed a translated route name
-            if ($route_name && Lang::has('routes.' . $route_name, $lang)) {
+            if ($route_name && Lang::has('routes.'.$route_name, $lang)) {
 
                 // Translate the route name to get the correct URI in the required language, and redirect to that URL.
                 if (count($query)) {
-                    return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], 'messages', $lang) . '?' . http_build_query($query));
+                    return redirect()->to($lang.'/'.trans('routes.'.$route_name, [], 'messages', $lang).'?'.http_build_query($query));
                 }
 
-                return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], 'messages', $lang));
+                return redirect()->to($lang.'/'.trans('routes.'.$route_name, [], 'messages', $lang));
             }
 
             // Replace the first segment by the new language code
@@ -43,7 +43,7 @@ class LanguageController extends Controller
 
             // Redirect to the required URL
             if (count($query)) {
-                return redirect()->to(implode('/', $segments) . '?' . http_build_query($query));
+                return redirect()->to(implode('/', $segments).'?'.http_build_query($query));
             }
 
             return redirect()->to(implode('/', $segments));
@@ -51,5 +51,4 @@ class LanguageController extends Controller
 
         return redirect()->back();
     }
-
 }
