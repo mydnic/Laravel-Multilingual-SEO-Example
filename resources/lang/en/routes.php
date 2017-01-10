@@ -2,5 +2,5 @@
 
 return [
     'about' => 'about',
-    'post' => 'post',
+    'post'  => 'post',
 ];

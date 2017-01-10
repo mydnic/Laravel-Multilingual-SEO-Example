@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Dimsav\Translatable\Translatable;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
@@ -12,5 +12,4 @@ class Post extends Model
     public $translatedAttributes = ['title', 'slug', 'content'];
 
     protected $fillable = ['title', 'slug', 'content'];
-
 }
