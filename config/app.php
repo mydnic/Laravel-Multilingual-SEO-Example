@@ -168,6 +168,7 @@ return [
          */
         Cviebrock\EloquentSluggable\ServiceProvider::class,
         Dimsav\Translatable\TranslatableServiceProvider::class,
+        Laravel\Tinker\TinkerServiceProvider::class,
 
         /*
          * Application Service Providers...
