@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
+use Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
-use Request;
 
 class RouteServiceProvider extends ServiceProvider
 {
