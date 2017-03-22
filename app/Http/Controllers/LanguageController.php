@@ -32,10 +32,10 @@ class LanguageController extends Controller
 
                 // Translate the route name to get the correct URI in the required language, and redirect to that URL.
                 if (count($query)) {
-                    return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], 'messages', $lang) . '?' . http_build_query($query));
+                    return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], $lang) . '?' . http_build_query($query));
                 }
 
-                return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], 'messages', $lang));
+                return redirect()->to($lang . '/' .  trans('routes.' . $route_name, [], $lang));
             }
 
             // Replace the first segment by the new language code
