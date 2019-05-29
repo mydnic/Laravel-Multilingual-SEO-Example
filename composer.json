@@ -9,7 +9,7 @@
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0",
         "cviebrock/eloquent-sluggable": "^4.1",
-        "dimsav/laravel-translatable": "^7.3"
+        "dimsav/laravel-translatable": "^9.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
