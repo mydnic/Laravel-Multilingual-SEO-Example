@@ -12,7 +12,7 @@
         "dimsav/laravel-translatable": "^10.0"
     },
     "require-dev": {
-        "fzaninotto/faker": "~1.4",
+        "fzaninotto/faker": "~1.9",
         "mockery/mockery": "1.2.*",
         "phpunit/phpunit": "~8.1"
     },
